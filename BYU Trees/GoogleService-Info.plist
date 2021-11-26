@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>623386611219-miq32o3li0atnvpk4qo3ht5b9s6s51e9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.623386611219-miq32o3li0atnvpk4qo3ht5b9s6s51e9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDa3JtpCP7txrCT_4E1vSuzjDEUtKbbhDU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>623386611219</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.TrevorSchmidt.BYU-Trees</string>
+	<key>PROJECT_ID</key>
+	<string>byu-tree</string>
+	<key>STORAGE_BUCKET</key>
+	<string>byu-tree.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:623386611219:ios:1a8ef3b5436a7a464f79e6</string>
+	<key>DATABASE_URL</key>
+	<string>https://byu-tree-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

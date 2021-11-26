@@ -1,0 +1,6 @@
+framework module Pods_BYU_Trees {
+  umbrella header "Pods-BYU Trees-umbrella.h"
+
+  export *
+  module * { export * }
+}
