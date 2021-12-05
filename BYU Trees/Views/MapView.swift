@@ -38,7 +38,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
                                                                           longitudeDelta: 0.0024573618005945264))
     
     private var manager = CLLocationManager()
-    private var loaded = false
     
     override init() {
         super.init()
