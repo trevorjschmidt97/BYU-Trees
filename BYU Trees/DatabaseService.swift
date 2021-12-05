@@ -6,8 +6,6 @@
 //
 
 import Foundation
-//import FirebaseDatabase
-//import CodableFirebase
 
 protocol DatabaseService {
     func pullTrees(completion: @escaping(Data?) -> Void)
@@ -27,23 +25,3 @@ struct NetworkService: DatabaseService {
         }.resume()
     }
 }
-
-//struct FirebaseDatabaseService: DatabaseService {
-//    private init() { }
-//    static var shared = FirebaseDatabaseService()
-//    
-//    private let rootRef = Database.database().reference()
-//    
-//    private struct Key {
-//        static let trees = "trees"
-//    }
-//    
-//    func pullTrees(completion: @escaping (Data?) -> Void) {
-//        rootRef.child(Key.trees).observe(.value) { snapshot in
-//            guard let value = snapshot.value as? Data else {
-//                completion(nil)
-//                return }
-//            completion(value)
-//        }
-//    }
-//}

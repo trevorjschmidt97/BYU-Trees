@@ -67,17 +67,17 @@ struct TreeView: View {
                     locationDescription()
                     typeDescription()
                     landscapeDescription()
-                    pests()
+                    if let Pests = tree.Pests {
+                        if Pests.count > 0 {
+                            pests()
+                        }
+                    }
                 }
                     .padding(.horizontal)
                 
                 // Images
                 if let images = tree.Images {
                     Divider()
-//                    HStack {
-//                        Text("Images:")
-//                            .font(.title3)
-//                        Spacer()
                         NavigationLink {
                             TabView {
                                 ForEach(images, id: \.self) { item in
@@ -86,8 +86,6 @@ struct TreeView: View {
                                         .scaledToFit()
                                 }
                             }
-//                            .frame(height: 600)
-//                            .padding(.horizontal)
                             .tabViewStyle(.page(indexDisplayMode: .automatic))
                             .navigationTitle("\(tree.CommonName) Pictures")
                         } label: {
@@ -101,33 +99,7 @@ struct TreeView: View {
                             }
                             .padding(.horizontal)
                         }
-
-//                        Button {
-//                            withAnimation {
-//                                showImages.toggle()
-//                            }
-//                        } label: {
-//                            Image(systemName: showImages ? "chevron.down" : "chevron.up")
-//                        }
-//                    }
-//                    .padding(.horizontal)
-//                    if showImages {
-//                        TabView {
-//                            ForEach(images, id: \.self) { item in
-//                                KFImage(URL(string: "https://treetour.byu.edu/\(item.URL)")!)
-//                                    .resizable()
-//                                    .scaledToFit()
-//                            }
-//                        }
-//                        .frame(height: 600)
-//                        .padding(.horizontal)
-//                        .background(Color.secondary)
-////                        .tabViewStyle(.page(indexDisplayMode: .always))
-//                        .tabViewStyle(.page(indexDisplayMode: .automatic))
-//                    }
                 }
-                
-                
                 Spacer()
             }
         }
@@ -137,13 +109,13 @@ struct TreeView: View {
     
     func top() -> some View {
         VStack(alignment: .leading) {
-            Text("\(tree.CommonName)")
+            Text("\(tree.CommonName.replacingOccurrences(of: "&#39;", with: "’"))")
                 .font(.title)
-            Text("\(tree.ScientificName) (\(tree.Family))")
+            Text("\(tree.ScientificName.replacingOccurrences(of: "&#39;", with: "’")) (\(tree.Family.replacingOccurrences(of: "&#39;", with: "’")))")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
             if tree.Description != "" {
-                Text("\(tree.Description)")
+                Text("\(tree.Description.replacingOccurrences(of: "&#39;", with: "’"))")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
@@ -153,145 +125,110 @@ struct TreeView: View {
     func about() -> some View {
         VStack(alignment: .leading) {
             Divider()
-            HStack {
-                Text("About \(tree.CommonName):")
-                    .font(.title3)
-                Spacer()
-                Button {
-                    withAnimation {
-                        showAbout.toggle()
-                    }
-                } label: {
-                    Image(systemName: showAbout ? "chevron.down" : "chevron.up")
+            NavigationLink {
+                WebView(html: "<h1>" + tree.Culture + "</h1>")
+                    .padding()
+                    .navigationTitle("About \(tree.CommonName.replacingOccurrences(of: "&#39;", with: "’"))")
+            } label: {
+                HStack {
+                    Text("About \(tree.CommonName.replacingOccurrences(of: "&#39;", with: "’")):")
+                        .font(.title3)
+                        .foregroundColor(.primary)
+                    Spacer()
+                    Image(systemName: "chevron.right")
                 }
             }
-            if showAbout {
-//                WebView(text: tree.Culture)
-//                HTMLStringView(htmlContent: tree.Culture)
-                Text("\(tree.Culture.html2markup())")
-                    .font(.body)
-            }
-            
         }
     }
     
     func locationDescription() -> some View {
         VStack(alignment: .leading) {
             Divider()
-            HStack {
-                Text("Location Description:")
-                    .font(.title3)
-                Spacer()
-                Button {
-                    withAnimation {
-                        showLocationDescription.toggle()
-                    }
-                } label: {
-                    Image(systemName: showLocationDescription ? "chevron.down" : "chevron.up")
+            
+            NavigationLink {
+                WebView(html: "<h1>" + tree.LocationDescription + "</h1>")
+                    .padding()
+                    .navigationTitle("Location of \(tree.CommonName.replacingOccurrences(of: "&#39;", with: "’"))")
+            } label: {
+                HStack {
+                    Text("Location Description:")
+                        .font(.title3)
+                        .foregroundColor(.primary)
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                    
                 }
             }
-            if showLocationDescription {
-                Text("\(tree.LocationDescription)")
-                    .font(.body)
-            }
-            
         }
     }
     
     func typeDescription() -> some View {
         VStack(alignment: .leading) {
             Divider()
-            HStack {
-                Text("Type Description:")
-                    .font(.title3)
-                Spacer()
-                Button {
-                    withAnimation {
-                        showTypeDescription.toggle()
-                    }
-                } label: {
-                    Image(systemName: showTypeDescription ? "chevron.down" : "chevron.up")
+            
+            NavigationLink {
+                WebView(html: "<h1>" + tree.TypeDescription + "</h1>")
+                    .padding()
+                    .navigationTitle("Type Description of \(tree.CommonName.replacingOccurrences(of: "&#39;", with: "’"))")
+            } label: {
+                HStack {
+                    Text("Type Description:")
+                        .font(.title3)
+                        .foregroundColor(.primary)
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                    
                 }
             }
-            if showTypeDescription {
-                Text("\(tree.TypeDescription)")
-                    .font(.body)
-            }
-            
         }
     }
     
     func landscapeDescription() -> some View {
         VStack(alignment: .leading) {
             Divider()
-            HStack {
-                Text("Landscape Description:")
-                    .font(.title3)
-                Spacer()
-                Button {
-                    withAnimation {
-                        showLandscapeDescription.toggle()
-                    }
-                } label: {
-                    Image(systemName: showLandscapeDescription ? "chevron.down" : "chevron.up")
-                }
-            }
-            if showLandscapeDescription {
-                Group {
-                    Text("Design Features: \(tree.Landscape.DesignFeatures)")
-                    Text("Flower Color: \(tree.Landscape.FlowerColor)")
-                    Text("Flower Time: \(tree.Landscape.FlowerTime)")
-                    Text("Form: \(tree.Landscape.Form)")
-                    Text("Hardiness Zones: \(tree.Landscape.HardinessZones)")
-                    Text("Leaf Color: \(tree.Landscape.LeafColor)")
-                    Text("Leaf Type: \(tree.Landscape.LeafType)")
-                    Text("Light Preferences: \(tree.Landscape.LightPreferences)")
-                    Text("Mature Size: \(tree.Landscape.MatureSize)")
-                    Text("PH: \(tree.Landscape.PH)")
-                }
-                    .font(.body)
-            }
-            if showLandscapeDescription {
-                Text("Soil Moisture: \(tree.Landscape.SoilMoisture)")
-                    .font(.body)
-                Text("Special Features: \(tree.Landscape.SpecialFeatures)")
-                    .font(.body)
-                Text("Texture: \(tree.Landscape.Texture)")
-                    .font(.body)
-            }
             
+            NavigationLink {
+                WebView(html: "<h1><B>Design Features:</B> " + tree.Landscape.DesignFeatures + "<br/>" +
+                        "<B>Flower Color:</B> " + tree.Landscape.FlowerColor + "<br/>" +
+                        "<B>Flower Time:</B> " + tree.Landscape.FlowerTime + "<br/>" +
+                        "<B>Form:</B> " + tree.Landscape.Form + "<br/>" +
+                        "<B>Hardiness Zones:</B> " + tree.Landscape.HardinessZones + "<br/>" +
+                        "<B>Leaf Color:</B> " + tree.Landscape.LeafColor + "<br/>" +
+                        "<B>Leaf Type:</B> " + tree.Landscape.LeafType + "<br/>" +
+                        "<B>Light Preferences:</B> " + tree.Landscape.LightPreferences + "<br/>" +
+                        "<B>Mature Size:</B> " + tree.Landscape.MatureSize + "<br/>" +
+                        "<B>PH:</B> " + tree.Landscape.PH + "<br/>" +
+                        "<B>Soil Moisture:</B> " + tree.Landscape.SoilMoisture + "<br/>" +
+                        "<B>Special Features:</B> " + tree.Landscape.SpecialFeatures + "<br/>" +
+                        "<B>Texture:</B> " + tree.Landscape.Texture + "</h1>")
+                    .padding()
+                    .navigationTitle("Landscape Description")
+            } label: {
+                HStack {
+                    Text("Landscape Description:")
+                        .font(.title3)
+                        .foregroundColor(.primary)
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                }
+            }
         }
     }
     
     func pests() -> some View {
         VStack(alignment: .leading) {
-            if let pests = tree.Pests {
-                if pests.count > 0 {
-                
-                    VStack(alignment: .leading) {
-                        Divider()
-                        HStack {
-                            Text("Pests:")
-                                .font(.title3)
-                            Spacer()
-                            Button {
-                                withAnimation {
-                                    showPests.toggle()
-                                }
-                            } label: {
-                                Image(systemName: showPests ? "chevron.down" : "chevron.up")
-                            }
-                        }
-                        if showPests {
-                            ForEach(pests) { pest in
-                                Text("\(pest.CommonName):")
-                                Text("Scientific Name: \(pest.ScientificName)")
-                                Text("Treatment: \(pest.Treatment)")
-                                Text("Prevention: \(pest.Prevention)")
-                                Text("Other Info: \(pest.OtherInfo)\n")
-                            }
-                        }
-                    }
+            Divider()
+            NavigationLink {
+                WebView(html: "<h1>" + tree.pestHtmlString + "</h1>")
+                    .padding()
+                    .navigationTitle("Pests of \(tree.CommonName.replacingOccurrences(of: "&#39;", with: "’"))")
+            } label: {
+                HStack {
+                    Text("Pests:")
+                        .font(.title3)
+                        .foregroundColor(.primary)
+                    Spacer()
+                    Image(systemName: "chevron.right")
                 }
             }
         }

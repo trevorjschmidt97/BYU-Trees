@@ -6,14 +6,9 @@
 //
 
 import SwiftUI
-//import Firebase
 
 @main
 struct BYU_TreesApp: App {
-    
-//    init() {
-//        FirebaseApp.configure()
-//    }
     
     @StateObject var viewModel = AppViewModel()
     

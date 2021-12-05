@@ -7,6 +7,4 @@ target 'BYU Trees' do
 
   # Pods for BYU Trees
   pod 'Kingfisher'
-  pod 'Firebase/Database'
-  pod 'CodableFirebase'
 end

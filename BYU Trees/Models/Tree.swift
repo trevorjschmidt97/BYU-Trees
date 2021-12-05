@@ -28,6 +28,20 @@ struct Tree: Identifiable, Codable {
     var id: Int {
         self.ID
     }
+    
+    var pestHtmlString: String {
+        var htmlString = ""
+        if let Pests = Pests {
+            for pest in Pests {
+                htmlString += "<B>" + pest.CommonName + ":</B><br/>"
+                htmlString += "Scientific Name: " + pest.ScientificName + "<br/>"
+                htmlString += "Treatment: " + pest.Treatment
+                htmlString += "Prevention: " + pest.Prevention
+                htmlString += "Other Info: " + pest.OtherInfo + "<br/>" + "<br/>"
+            }
+        }
+        return htmlString
+    }
 }
 
 // Global Example Tree

@@ -22,7 +22,7 @@ struct KFImageView: View {
                     .overlay(Circle().stroke(Color.white, lineWidth: 2))
                     .scaledToFill()
             } placeholder: {
-                Image(systemName: "leaf")
+                ProgressView()
                     .frame(width: imageSize, height: imageSize)
                     .background(Color.white)
                     .clipShape(Circle())
@@ -32,7 +32,7 @@ struct KFImageView: View {
         } else {
             KFImage(URL(string: "https://treetour.byu.edu/\(thumbnailURL)")!)
                 .placeholder({
-                    Image(systemName: "leaf")
+                    ProgressView()
                         .frame(width: imageSize, height: imageSize)
                         .background(Color.white)
                         .clipShape(Circle())
@@ -48,9 +48,3 @@ struct KFImageView: View {
             
     }
 }
-
-//struct KFImageView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        KFImageView()
-//    }
-//}
