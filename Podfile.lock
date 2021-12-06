@@ -1,16 +1,20 @@
 PODS:
   - Kingfisher (6.3.1)
+  - SwiftSoup (2.3.3)
 
 DEPENDENCIES:
   - Kingfisher
+  - SwiftSoup
 
 SPEC REPOS:
   trunk:
     - Kingfisher
+    - SwiftSoup
 
 SPEC CHECKSUMS:
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  SwiftSoup: 8e4844e785a975744f2c2606f8b3844ef67eb259
 
-PODFILE CHECKSUM: 55308492388bb2d522bf808a30c4ef7fb0257c88
+PODFILE CHECKSUM: a8dab12941184dbdcde92e7c3b54c8334d66c768
 
 COCOAPODS: 1.11.2

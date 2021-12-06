@@ -18,4 +18,7 @@ struct TreeLocation: Codable {
     var WestSeconds: Double = 0.0
     
     // no computed vars
+    func toString() -> String {
+        Latitude + Longitude + String(NorthDegrees) + String(NorthMinutes) + String(NorthSeconds) + String(WestDegrees) + String(WestMinutes) + String(WestSeconds)
+    }
 }

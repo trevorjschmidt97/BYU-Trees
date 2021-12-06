@@ -29,9 +29,9 @@ struct SearchableListView: View {
     var body: some View {
         List {
             ForEach(filteredTrees) { tree in
-                let commonName = tree.CommonName.replacingOccurrences(of: "&#39;", with: "’")
-                let scientificName = tree.ScientificName.replacingOccurrences(of: "&#39;", with: "’")
-                let familyName = tree.Family.replacingOccurrences(of: "&#39;", with: "’")
+                let commonName = tree.CommonName.htmlToMarkup()
+                let scientificName = tree.ScientificName.htmlToMarkup()
+                let familyName = tree.Family.htmlToMarkup()
                 NavigationLink {
                     TreeView(tree: tree)
                 } label: {
@@ -52,7 +52,7 @@ struct SearchableListView: View {
                         .shadow(radius: 7)
                         .padding(.trailing)
                         VStack(alignment: .leading) {
-                            Text("\(commonName)")
+                            Text(.init(commonName))
                             Text("\(scientificName) (\(familyName))")
                                 .font(.caption)
                                 .foregroundColor(.secondary)

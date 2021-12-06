@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		16C129C5283828B774E6C07C /* Pods_BYU_Trees.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37266E4BB1AE610B100B825 /* Pods_BYU_Trees.framework */; };
-		69C5EEA42759551F000090DB /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C5EEA32759551F000090DB /* WebView.swift */; };
+		691CF0B6275D964F00C5CB8D /* TreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691CF0B5275D964F00C5CB8D /* TreeView.swift */; };
+		691CF0B9275D994100C5CB8D /* Swift + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691CF0B8275D994100C5CB8D /* Swift + Extensions.swift */; };
 		EB8A19FB273466C100765DB6 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A19FA273466C100765DB6 /* DatabaseService.swift */; };
 		EB90F04B270DF28700F9C5F8 /* BYU_TreesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB90F04A270DF28700F9C5F8 /* BYU_TreesApp.swift */; };
 		EB90F04F270DF28900F9C5F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB90F04E270DF28900F9C5F8 /* Assets.xcassets */; };
@@ -22,14 +23,14 @@
 		EB90F06E270DF48400F9C5F8 /* SearchableListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB90F068270DF48400F9C5F8 /* SearchableListView.swift */; };
 		EB90F06F270DF48400F9C5F8 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB90F069270DF48400F9C5F8 /* ListView.swift */; };
 		EB90F070270DF48400F9C5F8 /* KFImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB90F06A270DF48400F9C5F8 /* KFImageView.swift */; };
-		EB90F071270DF48400F9C5F8 /* TreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB90F06B270DF48400F9C5F8 /* TreeView.swift */; };
 		EB90F073270DF48400F9C5F8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB90F06D270DF48400F9C5F8 /* MapView.swift */; };
 		EBFB78AF2746FE08006885E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFB78AE2746FE08006885E0 /* ContentView.swift */; };
 		EBFB78B227471994006885E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFB78B127471994006885E0 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		69C5EEA32759551F000090DB /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		691CF0B5275D964F00C5CB8D /* TreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeView.swift; sourceTree = "<group>"; };
+		691CF0B8275D994100C5CB8D /* Swift + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swift + Extensions.swift"; sourceTree = "<group>"; };
 		A37266E4BB1AE610B100B825 /* Pods_BYU_Trees.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BYU_Trees.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3E21C34645B2FCC77CA00C /* Pods-BYU Trees.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BYU Trees.release.xcconfig"; path = "Target Support Files/Pods-BYU Trees/Pods-BYU Trees.release.xcconfig"; sourceTree = "<group>"; };
 		C65A8B17C506073A15A7E8A1 /* Pods-BYU Trees.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BYU Trees.debug.xcconfig"; path = "Target Support Files/Pods-BYU Trees/Pods-BYU Trees.debug.xcconfig"; sourceTree = "<group>"; };
@@ -47,7 +48,6 @@
 		EB90F068270DF48400F9C5F8 /* SearchableListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableListView.swift; sourceTree = "<group>"; };
 		EB90F069270DF48400F9C5F8 /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		EB90F06A270DF48400F9C5F8 /* KFImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KFImageView.swift; sourceTree = "<group>"; };
-		EB90F06B270DF48400F9C5F8 /* TreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeView.swift; sourceTree = "<group>"; };
 		EB90F06D270DF48400F9C5F8 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		EBFB78AE2746FE08006885E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EBFB78B027471993006885E0 /* BYU-Trees-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BYU-Trees-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -74,6 +74,14 @@
 				AB3E21C34645B2FCC77CA00C /* Pods-BYU Trees.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		691CF0B7275D993800C5CB8D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				691CF0B8275D994100C5CB8D /* Swift + Extensions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		B44E3D2D5147D9CA64640D09 /* Frameworks */ = {
@@ -113,6 +121,7 @@
 				EB90F059270DF29800F9C5F8 /* Views */,
 				EB90F058270DF29200F9C5F8 /* Models */,
 				EB90F04E270DF28900F9C5F8 /* Assets.xcassets */,
+				691CF0B7275D993800C5CB8D /* Utilities */,
 				EB90F050270DF28900F9C5F8 /* Preview Content */,
 			);
 			path = "BYU Trees";
@@ -145,9 +154,8 @@
 				EB90F06D270DF48400F9C5F8 /* MapView.swift */,
 				EB90F069270DF48400F9C5F8 /* ListView.swift */,
 				EB90F068270DF48400F9C5F8 /* SearchableListView.swift */,
-				EB90F06B270DF48400F9C5F8 /* TreeView.swift */,
+				691CF0B5275D964F00C5CB8D /* TreeView.swift */,
 				EB90F06A270DF48400F9C5F8 /* KFImageView.swift */,
-				69C5EEA32759551F000090DB /* WebView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,15 +280,15 @@
 				EB90F067270DF3DB00F9C5F8 /* TreePest.swift in Sources */,
 				EB90F070270DF48400F9C5F8 /* KFImageView.swift in Sources */,
 				EB90F063270DF3B800F9C5F8 /* TreeImage.swift in Sources */,
-				69C5EEA42759551F000090DB /* WebView.swift in Sources */,
 				EB8A19FB273466C100765DB6 /* DatabaseService.swift in Sources */,
 				EB90F073270DF48400F9C5F8 /* MapView.swift in Sources */,
 				EB90F04B270DF28700F9C5F8 /* BYU_TreesApp.swift in Sources */,
 				EB90F05B270DF2AD00F9C5F8 /* AppViewModel.swift in Sources */,
+				691CF0B6275D964F00C5CB8D /* TreeView.swift in Sources */,
 				EB90F06F270DF48400F9C5F8 /* ListView.swift in Sources */,
 				EB90F065270DF3CD00F9C5F8 /* TreeLocation.swift in Sources */,
 				EB90F061270DF39C00F9C5F8 /* TreeLandscape.swift in Sources */,
-				EB90F071270DF48400F9C5F8 /* TreeView.swift in Sources */,
+				691CF0B9275D994100C5CB8D /* Swift + Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,7 +425,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BYU-Trees-Info.plist";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow location to see yourself on the map";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow location to see yourself on the map.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -453,7 +461,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BYU-Trees-Info.plist";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow location to see yourself on the map";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow location to see yourself on the map.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;

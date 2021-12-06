@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-BYU Trees/Pods-BYU Trees-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
+${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework

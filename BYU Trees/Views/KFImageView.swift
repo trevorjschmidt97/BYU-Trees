@@ -24,7 +24,7 @@ struct KFImageView: View {
             } placeholder: {
                 ProgressView()
                     .frame(width: imageSize, height: imageSize)
-                    .background(Color.white)
+                    .background(Color.white.opacity(0.3))
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.white, lineWidth: 2))
                     .scaledToFill()
@@ -34,7 +34,7 @@ struct KFImageView: View {
                 .placeholder({
                     ProgressView()
                         .frame(width: imageSize, height: imageSize)
-                        .background(Color.white)
+                        .background(Color.white.opacity(0.3))
                         .clipShape(Circle())
                         .overlay(Circle().stroke(Color.white, lineWidth: 2))
                         .scaledToFill()

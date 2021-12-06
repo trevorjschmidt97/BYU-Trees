@@ -23,4 +23,7 @@ struct TreeLandscape: Codable {
     var Texture: String = ""
     
     // no computed vars
+    func toString() -> String {
+        DesignFeatures + FlowerColor + FlowerTime + Form + HardinessZones + LeafColor + LeafType + LightPreferences + MatureSize + PH + SoilMoisture + SpecialFeatures + Texture
+    }
 }

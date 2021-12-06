@@ -18,7 +18,7 @@ struct TreeView: View {
                                          span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002))
         
         UIPageControl.appearance().currentPageIndicatorTintColor = .label
-        UIPageControl.appearance().pageIndicatorTintColor = .secondaryLabel// UIColor.black.withAlphaComponent(0.2)
+        UIPageControl.appearance().pageIndicatorTintColor = .secondaryLabel
     }
     
     var tree: Tree
@@ -28,7 +28,6 @@ struct TreeView: View {
     @State private var showTypeDescription = false
     @State private var showLandscapeDescription = false
     @State private var showPests = false
-    @State private var showImages = true
     
     var body: some View {
         ScrollView {
@@ -69,7 +68,7 @@ struct TreeView: View {
                     landscapeDescription()
                     if let Pests = tree.Pests {
                         if Pests.count > 0 {
-                            pests()
+                            pests(pests: Pests)
                         }
                     }
                 }
@@ -82,6 +81,9 @@ struct TreeView: View {
                             TabView {
                                 ForEach(images, id: \.self) { item in
                                     KFImage(URL(string: "https://treetour.byu.edu/\(item.URL)")!)
+                                        .placeholder({
+                                            ProgressView()
+                                        })
                                         .resizable()
                                         .scaledToFit()
                                 }
@@ -100,6 +102,8 @@ struct TreeView: View {
                             .padding(.horizontal)
                         }
                 }
+                
+                
                 Spacer()
             }
         }
@@ -109,13 +113,13 @@ struct TreeView: View {
     
     func top() -> some View {
         VStack(alignment: .leading) {
-            Text("\(tree.CommonName.replacingOccurrences(of: "&#39;", with: "’"))")
+            Text(.init(tree.CommonName.htmlToMarkup()))
                 .font(.title)
-            Text("\(tree.ScientificName.replacingOccurrences(of: "&#39;", with: "’")) (\(tree.Family.replacingOccurrences(of: "&#39;", with: "’")))")
+            Text("\(tree.ScientificName.htmlToMarkup()) (\(tree.Family.htmlToMarkup()))")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
             if tree.Description != "" {
-                Text("\(tree.Description.replacingOccurrences(of: "&#39;", with: "’"))")
+                Text("\(tree.Description.htmlToMarkup())")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
@@ -125,39 +129,44 @@ struct TreeView: View {
     func about() -> some View {
         VStack(alignment: .leading) {
             Divider()
-            NavigationLink {
-                WebView(html: "<h1>" + tree.Culture + "</h1>")
-                    .padding()
-                    .navigationTitle("About \(tree.CommonName.replacingOccurrences(of: "&#39;", with: "’"))")
-            } label: {
-                HStack {
-                    Text("About \(tree.CommonName.replacingOccurrences(of: "&#39;", with: "’")):")
-                        .font(.title3)
-                        .foregroundColor(.primary)
-                    Spacer()
-                    Image(systemName: "chevron.right")
+            HStack {
+                Text("About \(tree.CommonName.htmlToMarkup()):")
+                    .font(.title3)
+                Spacer()
+                Button {
+                    withAnimation {
+                        showAbout.toggle()
+                    }
+                } label: {
+                    Image(systemName: showAbout ? "chevron.down" : "chevron.up")
                 }
             }
+            if showAbout {
+                Text(.init(tree.Culture.htmlToMarkup()))
+                    .font(.body)
+            }
+            
         }
     }
     
     func locationDescription() -> some View {
         VStack(alignment: .leading) {
             Divider()
-            
-            NavigationLink {
-                WebView(html: "<h1>" + tree.LocationDescription + "</h1>")
-                    .padding()
-                    .navigationTitle("Location of \(tree.CommonName.replacingOccurrences(of: "&#39;", with: "’"))")
-            } label: {
-                HStack {
-                    Text("Location Description:")
-                        .font(.title3)
-                        .foregroundColor(.primary)
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                    
+            HStack {
+                Text("Location Description:")
+                    .font(.title3)
+                Spacer()
+                Button {
+                    withAnimation {
+                        showLocationDescription.toggle()
+                    }
+                } label: {
+                    Image(systemName: showLocationDescription ? "chevron.down" : "chevron.up")
                 }
+            }
+            if showLocationDescription {
+                Text(.init(tree.LocationDescription.htmlToMarkup()))
+                    .font(.body)
             }
         }
     }
@@ -165,77 +174,75 @@ struct TreeView: View {
     func typeDescription() -> some View {
         VStack(alignment: .leading) {
             Divider()
-            
-            NavigationLink {
-                WebView(html: "<h1>" + tree.TypeDescription + "</h1>")
-                    .padding()
-                    .navigationTitle("Type Description of \(tree.CommonName.replacingOccurrences(of: "&#39;", with: "’"))")
-            } label: {
-                HStack {
-                    Text("Type Description:")
-                        .font(.title3)
-                        .foregroundColor(.primary)
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                    
+            HStack {
+                Text("Type Description:")
+                    .font(.title3)
+                Spacer()
+                Button {
+                    withAnimation {
+                        showTypeDescription.toggle()
+                    }
+                } label: {
+                    Image(systemName: showTypeDescription ? "chevron.down" : "chevron.up")
                 }
             }
+            if showTypeDescription {
+                Text(.init(tree.TypeDescription.htmlToMarkup()))
+                    .font(.body)
+            }
+            
         }
     }
     
     func landscapeDescription() -> some View {
         VStack(alignment: .leading) {
             Divider()
-            
-            NavigationLink {
-                WebView(html: "<h1><B>Design Features:</B> " + tree.Landscape.DesignFeatures + "<br/>" +
-                        "<B>Flower Color:</B> " + tree.Landscape.FlowerColor + "<br/>" +
-                        "<B>Flower Time:</B> " + tree.Landscape.FlowerTime + "<br/>" +
-                        "<B>Form:</B> " + tree.Landscape.Form + "<br/>" +
-                        "<B>Hardiness Zones:</B> " + tree.Landscape.HardinessZones + "<br/>" +
-                        "<B>Leaf Color:</B> " + tree.Landscape.LeafColor + "<br/>" +
-                        "<B>Leaf Type:</B> " + tree.Landscape.LeafType + "<br/>" +
-                        "<B>Light Preferences:</B> " + tree.Landscape.LightPreferences + "<br/>" +
-                        "<B>Mature Size:</B> " + tree.Landscape.MatureSize + "<br/>" +
-                        "<B>PH:</B> " + tree.Landscape.PH + "<br/>" +
-                        "<B>Soil Moisture:</B> " + tree.Landscape.SoilMoisture + "<br/>" +
-                        "<B>Special Features:</B> " + tree.Landscape.SpecialFeatures + "<br/>" +
-                        "<B>Texture:</B> " + tree.Landscape.Texture + "</h1>")
-                    .padding()
-                    .navigationTitle("Landscape Description")
-            } label: {
-                HStack {
-                    Text("Landscape Description:")
-                        .font(.title3)
-                        .foregroundColor(.primary)
-                    Spacer()
-                    Image(systemName: "chevron.right")
+            HStack {
+                Text("Landscape Description:")
+                    .font(.title3)
+                Spacer()
+                Button {
+                    withAnimation {
+                        showLandscapeDescription.toggle()
+                    }
+                } label: {
+                    Image(systemName: showLandscapeDescription ? "chevron.down" : "chevron.up")
                 }
             }
+            if showLandscapeDescription {
+                Text(.init(tree.landscapeHtmlString))
+                    .font(.body)
+            }
+            
         }
     }
     
-    func pests() -> some View {
+    func pests(pests: [TreePest]) -> some View {
         VStack(alignment: .leading) {
-            Divider()
-            NavigationLink {
-                WebView(html: "<h1>" + tree.pestHtmlString + "</h1>")
-                    .padding()
-                    .navigationTitle("Pests of \(tree.CommonName.replacingOccurrences(of: "&#39;", with: "’"))")
-            } label: {
+            VStack(alignment: .leading) {
+                Divider()
                 HStack {
                     Text("Pests:")
                         .font(.title3)
-                        .foregroundColor(.primary)
                     Spacer()
-                    Image(systemName: "chevron.right")
+                    Button {
+                        withAnimation {
+                            showPests.toggle()
+                        }
+                    } label: {
+                        Image(systemName: showPests ? "chevron.down" : "chevron.up")
+                    }
+                }
+                if showPests {
+                    Text(.init(tree.pestHtmlString))
+                        .font(.body)
                 }
             }
         }
     }
 }
 
-struct TreeView_Previews: PreviewProvider {
+struct OldTreeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             TreeView(tree: exampleTree)

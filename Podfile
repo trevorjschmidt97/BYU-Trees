@@ -7,4 +7,5 @@ target 'BYU Trees' do
 
   # Pods for BYU Trees
   pod 'Kingfisher'
+  pod 'SwiftSoup'
 end

@@ -23,10 +23,28 @@ struct Tree: Identifiable, Codable {
     
     // Computed Vars
     var searchString: String {
-        CommonName + Culture + Description + ScientificName + Family + LocationDescription + TypeDescription
+        CommonName + Culture + Description + ScientificName + Family + LocationDescription + TypeDescription + Landscape.toString() + Location.toString()
     }
     var id: Int {
         self.ID
+    }
+    
+    var landscapeHtmlString: String {
+        var htmlString = "<B>Design Features:</B> " + Landscape.DesignFeatures
+        htmlString += "<B>Flower Color:</B> " + Landscape.FlowerColor
+        htmlString += "<B>Flower Time:</B> " + Landscape.FlowerTime
+        htmlString += "<B>Form:</B> " + Landscape.Form
+        htmlString += "<B>Hardiness Zones:</B> " + Landscape.HardinessZones
+        htmlString += "<B>Leaf Color:</B> " + Landscape.LeafColor
+        htmlString += "<B>Leaf Type:</B> " + Landscape.LeafType
+        htmlString += "<B>Light Preferences:</B> " + Landscape.LightPreferences
+        htmlString += "<B>Mature Size:</B> " + Landscape.MatureSize
+        htmlString += "<B>PH:</B> " + Landscape.PH
+        htmlString += "<B>Soil Moisture:</B> " + Landscape.SoilMoisture
+        htmlString += "<B>Special Features:</B> " + Landscape.SpecialFeatures
+        htmlString += "<B>Texture:</B> " + Landscape.Texture
+        
+        return htmlString.htmlToMarkup()
     }
     
     var pestHtmlString: String {
@@ -34,13 +52,13 @@ struct Tree: Identifiable, Codable {
         if let Pests = Pests {
             for pest in Pests {
                 htmlString += "<B>" + pest.CommonName + ":</B><br/>"
-                htmlString += "Scientific Name: " + pest.ScientificName + "<br/>"
-                htmlString += "Treatment: " + pest.Treatment
-                htmlString += "Prevention: " + pest.Prevention
-                htmlString += "Other Info: " + pest.OtherInfo + "<br/>" + "<br/>"
+                htmlString += "<I>Scientific Name:</I> " + pest.ScientificName + "<br/>"
+                htmlString += "<I>Treatment:</I> " + pest.Treatment
+                htmlString += "<I>Prevention:</I> " + pest.Prevention
+                htmlString += "<I>Other Info:</I> " + pest.OtherInfo + "<br/>" + "<br/>"
             }
         }
-        return htmlString
+        return htmlString.htmlToMarkup()
     }
 }
 
