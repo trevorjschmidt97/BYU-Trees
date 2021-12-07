@@ -22,7 +22,7 @@ struct MapView: View {
                     TreeView(tree: tree)
                 } label: {
                     if let imageUrl = tree.Images?.first {
-                        KFImageView(thumbnailURL: imageUrl.URL, imageSize: 50)
+                        KFImageView(thumbnailURL: imageUrl.ThumbnailURL, imageSize: 50)
                     }
                 }
             }

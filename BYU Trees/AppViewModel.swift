@@ -28,6 +28,7 @@ class AppViewModel: ObservableObject {
                     // then set it as the trees
                     let sortedTrees = trees.sorted { $0.CommonName < $1.CommonName }
                     self.trees = sortedTrees.filter { $0.CommonName != "Red Twig Dogwood (SHRUB)" && $0.CommonName != "English Walnut" }
+                    print(sortedTrees.count)
                 }
             }
         }

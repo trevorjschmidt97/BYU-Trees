@@ -425,6 +425,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BYU-Trees-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BYU Trees";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow location to see yourself on the map.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -461,6 +462,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BYU-Trees-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BYU Trees";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow location to see yourself on the map.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

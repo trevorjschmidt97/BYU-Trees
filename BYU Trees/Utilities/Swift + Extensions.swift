@@ -14,23 +14,7 @@ extension String {
         var html = self.replacingOccurrences(of: "<A HREF", with: "<a href")
         html = html.replacingOccurrences(of: "TARGET=", with: "target=")
         html = html.replacingOccurrences(of: "</A>", with: "</a>")
-        html = anchorsToMarkdown(html: html)
         
-        
-        html = html.replacingOccurrences(of: "<B>", with: "**")
-        html = html.replacingOccurrences(of: "  </B>", with: "** ")
-        html = html.replacingOccurrences(of: " </B>", with: "** ")
-        html = html.replacingOccurrences(of: "</B>", with: "**")
-        html = html.replacingOccurrences(of: "<I>", with: "*")
-        html = html.replacingOccurrences(of: "</I>", with: "*")
-        html = html.replacingOccurrences(of: "<br/>", with: "\n")
-        html = html.replacingOccurrences(of: "&#39;", with: "’")
-        
-        return html
-    }
-    
-    func anchorsToMarkdown(html: String) -> String {
-        var html = html
         do {
             let doc: Document = try SwiftSoup.parse(html)
             guard let anchors = try? doc.select("A") else { return "error" }
@@ -47,7 +31,17 @@ extension String {
         } catch {
             print("error")
         }
-
+        
+        
+        html = html.replacingOccurrences(of: "<B>", with: "**")
+        html = html.replacingOccurrences(of: "  </B>", with: "** ")
+        html = html.replacingOccurrences(of: " </B>", with: "** ")
+        html = html.replacingOccurrences(of: "</B>", with: "**")
+        html = html.replacingOccurrences(of: "<I>", with: "*")
+        html = html.replacingOccurrences(of: "</I>", with: "*")
+        html = html.replacingOccurrences(of: "<br/>", with: "\n")
+        html = html.replacingOccurrences(of: "&#39;", with: "’")
+        
         return html
     }
 }

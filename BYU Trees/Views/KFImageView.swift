@@ -16,6 +16,7 @@ struct KFImageView: View {
         if #available(iOS 15.0, *) {
             AsyncImage(url: URL(string:"https://treetour.byu.edu/\(thumbnailURL)")) { downloadedImage in
                 downloadedImage
+                    .renderingMode(.original)
                     .resizable()
                     .frame(width: imageSize, height: imageSize)
                     .clipShape(Circle())
@@ -24,7 +25,7 @@ struct KFImageView: View {
             } placeholder: {
                 ProgressView()
                     .frame(width: imageSize, height: imageSize)
-                    .background(Color.white.opacity(0.3))
+                    .background(Color.white.opacity(0.4))
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.white, lineWidth: 2))
                     .scaledToFill()
@@ -34,16 +35,18 @@ struct KFImageView: View {
                 .placeholder({
                     ProgressView()
                         .frame(width: imageSize, height: imageSize)
-                        .background(Color.white.opacity(0.3))
+                        .background(Color.white.opacity(0.4))
                         .clipShape(Circle())
                         .overlay(Circle().stroke(Color.white, lineWidth: 2))
                         .scaledToFill()
                 })
+                .renderingMode(.original)
                 .resizable()
                 .frame(width: imageSize, height: imageSize)
                 .clipShape(Circle())
                 .overlay(Circle().stroke(Color.white, lineWidth: 2))
                 .scaledToFill()
+                
         }
             
     }
